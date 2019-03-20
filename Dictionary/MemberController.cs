@@ -13,7 +13,7 @@ namespace Dictionary
         {
             //Pre: "m" is a member-object, "m.Id" must not be present in "actives" or "passives"
             //Post: "m" is added to either "actives" or "passives" - which one is determined by "memberType"
-            if (!IdAlreadyUsed(m.Id) && !IdAlreadyUsed(m.Id))
+            if (!IdAlreadyUsed(m.Id))
             {
                 if (memberType == MemberType.active)
                 {
@@ -39,7 +39,6 @@ namespace Dictionary
 
         public IEnumerable<Member> Getmembers()
         {
-            GetAllMember();
             List<Member> list = new List<Member>();
             foreach (KeyValuePair<int, Member> m in actives)
             {

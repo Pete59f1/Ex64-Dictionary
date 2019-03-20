@@ -40,7 +40,6 @@ namespace Dictionary
         public Dictionary<string, Member> GetAllMembers()
         {
             Dictionary<string, Member> members = new Dictionary<string, Member>();
-            Member m;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -59,7 +58,7 @@ namespace Dictionary
                             int id = int.Parse(read["Id"].ToString());
                             string name = read["FName"].ToString();
                             string status = read["MStatus"].ToString();
-                            members.Add(status, m = new Member { Id = id, Name = name });
+                            members.Add(status, new Member { Id = id, Name = name });
                         }
                     }
                 }
