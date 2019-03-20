@@ -80,6 +80,10 @@ namespace Dictionary
             //Pre: None
             //Post: None
             //Output: All members (active and passive) are listed on the screen
+            foreach (Member m in MC.Getmembers())
+            {
+                Console.WriteLine(m);
+            }
             Pause();
         }
 

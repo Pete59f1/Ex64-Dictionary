@@ -13,6 +13,6 @@
         }
     }
     //Ex64 øvelse 1
-    //Der er anvendt et løst tre lags arkitektur
+    //Der er anvendt et løst to lags arkitektur
     //SOLID bla bla bla
 }
