@@ -5,6 +5,7 @@ namespace Dictionary
 {
     class MemberController
     {
+        private DBController db = new DBController();
         private Dictionary<int, Member> actives = new Dictionary<int, Member>();
         private Dictionary<int, Member> passives = new Dictionary<int, Member>();
 
@@ -38,6 +39,7 @@ namespace Dictionary
 
         public IEnumerable<Member> Getmembers()
         {
+            GetAllMember();
             List<Member> list = new List<Member>();
             foreach (KeyValuePair<int, Member> m in actives)
             {
@@ -71,6 +73,21 @@ namespace Dictionary
                 result = true;
             }
             return result;
+        }
+        public void GetAllMember()
+        {
+            Dictionary<string, Member> members = db.GetAllMembers();
+            foreach (KeyValuePair<string, Member> m in members)
+            {
+                if (m.Key.Equals("active"))
+                {
+                    AddMember(MemberType.active, m.Value);
+                }
+                else
+                {
+                    AddMember(MemberType.passive, m.Value);
+                }
+            }
         }
     }
 }
